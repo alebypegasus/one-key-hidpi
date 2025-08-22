@@ -1,0 +1,22 @@
+{
+    "backup_info": {
+        "timestamp": "2025-08-22T17:01:46Z",
+        "script_version": "2.0.0",
+        "macos_version": "15.6",
+        "architecture": "x86_64",
+        "language": "en_US",
+        "backup_type": "hidpi_configuration"
+    },
+    "system_info": {
+        "hostname": "MacBook-Pro-de-Alessandro.local",
+        "username": "alebypegasus",
+        "current_directory": "/Users/alebypegasus/Documents/Developers/one-key-hidpi"
+    },
+    "display_info": {
+        "vendor_id": "09E5",
+        "product_id": "0812",
+        "monitor_name": "",
+        "notebook_manufacturer": "",
+        "notebook_series": ""
+    }
+}
