@@ -76,7 +76,7 @@
 			buildPhases = (
 				A1234567890123456789012M /* Sources */,
 				A1234567890123456789012G /* Frameworks */,
-				A1234567890123456789012N /* Resources */,
+				A1234567890123456789012N /* Resources */
 			);
 			buildRules = (
 			);
@@ -108,7 +108,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				Base
 			);
 			mainGroup = A1234567890123456789012H;
 			productRefGroup = A1234567890123456789012J /* Products */;
@@ -120,22 +120,11 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		A1234567890123456789012N /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A1234567890123456789013A /* Preview Assets.xcassets in Resources */,
-				A1234567890123456789012E /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		A1234567890123456789012M /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
+			// Apenas objetos do tipo PBXBuildFile devem ser referenciados aqui!
 			files = (
 				A1234567890123456789012C /* ContentView.swift in Sources */,
 				A1234567890123456789012A /* HiDPI_ConfiguratorApp.swift in Sources */,
@@ -143,6 +132,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1234567890123456789012N /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			// Apenas objetos do tipo PBXBuildFile devem ser referenciados aqui!
+			files = (
+				A1234567890123456789013A /* Preview Assets.xcassets in Resources */,
+				A1234567890123456789012E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		A1234567890123456789012Q /* Debug */ = {
@@ -318,7 +320,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1234567890123456789012Q /* Debug */,
-				A1234567890123456789012R /* Release */,
+				A1234567890123456789012R /* Release */
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -327,7 +329,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1234567890123456789012S /* Debug */,
-				A1234567890123456789012T /* Release */,
+				A1234567890123456789012T /* Release */
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
