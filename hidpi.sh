@@ -15,234 +15,36 @@ currentDir="$(cd $(dirname -- $0) && pwd)"
 systemLanguage=($(locale | grep LANG | sed s/'LANG='// | tr -d '"' | cut -d "." -f 1))
 is_applesilicon=$([[ "$(uname -m)" == "arm64" ]] && echo true || echo false)
 
-langDisplay="Display"
-langMonitors="Monitors"
-langIndex="Index"
-langVendorID="VendorID"
-langProductID="ProductID"
-langMonitorName="MonitorName"
-langChooseDis="Choose the display"
-langInputChoice="Enter your choice"
-langEnterError="Enter error, bye"
-langBackingUp="Backing up..."
-langEnabled="Enabled, please reboot."
-langDisabled="Disabled, restart takes effect"
-langEnabledLog="Rebooting the logo for the first time will become huge, then it will not be."
-langCustomRes="Enter the HIDPI resolution, separated by a space，like this: 1680x945 1600x900 1440x810"
+# Load English as fallback
+source "${currentDir}/lang/en.sh"
 
-langChooseIcon="Display Icon"
-langNotChange="Do not change"
-
-langEnableHIDPI="(%d) Enable HIDPI"
-langEnableHIDPIEDID="(%d) Enable HIDPI (with EDID)"
-langDisableHIDPI="(%d) Disable HIDPI"
-
-langDisableOpt1="(1) Disable HIDPI on this monitor"
-langDisableOpt2="(2) Reset all settings to macOS default"
-
-langChooseRes="resolution config"
-langChooseResOp1="(1) 1920x1080 Display"
-langChooseResOp2="(2) 1920x1080 Display (use 1424x802, fix underscaled after sleep)"
-langChooseResOp3="(3) 1920x1200 Display"
-langChooseResOp4="(4) 2560x1440 Display"
-langChooseResOp5="(5) 3000x2000 Display"
-langChooseResOp6="(6) 3440x1440 Display"
-langChooseResOpCustom="(7) Manual input resolution"
-
-langNoMonitFound="No monitors were found. Exiting..."
-langMonitVIDPID="Your monitor VID:PID:"
-if [[ "${systemLanguage}" == "zh_CN" ]]; then
-    langDisplay="显示器"
-    langMonitors="显示器"
-    langIndex="序号"
-    langVendorID="供应商ID"
-    langProductID="产品ID"
-    langMonitorName="显示器名称"
-    langChooseDis="选择显示器"
-    langInputChoice="输入你的选择"
-    langEnterError="输入错误，再见了您嘞！"
-    langBackingUp="正在备份(怎么还原请看说明)..."
-    langEnabled="开启成功，重启生效"
-    langDisabled="关闭成功，重启生效"
-    langEnabledLog="首次重启开机logo会变得巨大，之后就不会了"
-    langCustomRes="输入想要开启的 HIDPI 分辨率，用空格隔开，就像这样：1680x945 1600x900 1440x810"
-
-    langChooseIcon="选择显示器ICON"
-    langNotChange="保持原样"
-
-    langEnableHIDPI="(%d) 开启HIDPI"
-    langEnableHIDPIEDID="(%d) 开启HIDPI(同时注入EDID)"
-    langDisableHIDPI="(%d) 关闭HIDPI"
-
-    langDisableOpt1="(1) 在此显示器上禁用 HIDPI"
-    langDisableOpt2="(2) 还原所有设置至 macOS 默认"
-
-    langChooseRes="选择分辨率配置"
-    langChooseResOp1="(1) 1920x1080 显示屏"
-    langChooseResOp2="(2) 1920x1080 显示屏 (使用 1424x802 分辨率，修复睡眠唤醒后的屏幕缩小问题)"
-    langChooseResOp3="(3) 1920x1200 显示屏"
-    langChooseResOp4="(4) 2560x1440 显示屏"
-    langChooseResOp5="(5) 3000x2000 显示屏"
-    langChooseResOp6="(6) 3440x1440 显示屏"
-    langChooseResOpCustom="(7) 手动输入分辨率"
-
-    langNoMonitFound="没有找到监视器。 退出..."
-    langMonitVIDPID="您的显示器 供应商ID:产品ID:"
-elif [[ "${systemLanguage}" == "uk_UA" ]]; then
-    langDisplay="Монітор"
-    langMonitors="Монітор"
-    langIndex="Номер"
-    langVendorID="ID Виробника"
-    langProductID="ID Продукту"
-    langMonitorName="Імʼя пристрою"
-    langChooseDis="Вибери монітор"
-    langInputChoice="Введи свій вибір"
-    langEnterError="Помилка вводу, бувай..."
-    langBackingUp="Зберігаю..."
-    langEnabled="Увімкнено! Перезавантаж компʼютер."
-    langDisabled="Вимкнено. Перезавантаж компʼютер."
-    langEnabledLog="Спочатку логотип виглядатиме великим, далі все виправиться"
-    langCustomRes="Введи роздільну здатність HiDPI розділену комами, як на цьому прикладі: 1680x945 1600x900 1440x810"
-
-    langChooseIcon="Вибери піктограму"
-    langNotChange="Не змінювати піктограму"
-
-    langEnableHIDPI="(%d) Увімкнути HIDPI"
-    langEnableHIDPIEDID="(%d) Увімкнути HIDPI (спробувати увімкнути з використанням EDID)"
-    langDisableHIDPI="(%d) Вимкнути HIDPI"
-
-    langDisableOpt1="(1) Вимкнути HIDPI для цього монітору"
-    langDisableOpt2="(2) Відновити заводські налаштування macOS"
-
-    langChooseRes="Налаштувати роздільну здатність"
-    langChooseResOp1="(1) 1920x1080 монітор"
-    langChooseResOp2="(2) 1920x1080 монітор (використовувати 1424x802, виправлення заниженої роздільної здатності після сну)"
-    langChooseResOp3="(3) 1920x1200 монітор"
-    langChooseResOp4="(4) 2560x1440 монітор"
-    langChooseResOp5="(5) 3000x2000 монітор"
-    langChooseResOp6="(6) 3440x1440 монітор"
-    langChooseResOpCustom="(7) Ввести роздільну здатність вручну"
-
-    langNoMonitFound="Моніторів не знайдено. Завершую роботу..."
-    langMonitVIDPID="ID Виробника:ID пристрою твого монітора:"
+# Attempt to load the user's language based on exact match or first 2 letters
+if [[ -f "${currentDir}/lang/${systemLanguage}.sh" ]]; then
+    source "${currentDir}/lang/${systemLanguage}.sh"
+elif [[ -f "${currentDir}/lang/${systemLanguage:0:2}.sh" ]]; then
+    source "${currentDir}/lang/${systemLanguage:0:2}.sh"
 fi
 
-function get_edid() {
-    local index=0
-    local selection=0
-
-    gDisplayInf=($(ioreg -lw0 | grep -i "IODisplayEDID" | sed -e "/[^<]*</s///" -e "s/\>//"))
-
-    if [[ "${#gDisplayInf[@]}" -ge 2 ]]; then
-
-        # Multi monitors detected. Choose target monitor.
-        echo ""
-        echo "                      "${langMonitors}"                      "
-        echo "--------------------------------------------------------"
-        echo "   "${langIndex}"   |   "${langVendorID}"   |   "${langProductID}"   |   "${langMonitorName}"   "
-        echo "--------------------------------------------------------"
-
-        # Show monitors.
-        for display in "${gDisplayInf[@]}"; do
-            let index++
-            MonitorName=("$(echo ${display:190:24} | xxd -p -r)")
-            VendorID=${display:16:4}
-            ProductID=${display:22:2}${display:20:2}
-
-            if [[ ${VendorID} == 0610 ]]; then
-                MonitorName="Apple Display"
-            fi
-
-            if [[ ${VendorID} == 1e6d ]]; then
-                MonitorName="LG Display"
-            fi
-
-            printf "    %d    |    ${VendorID}    |     ${ProductID}    |  ${MonitorName}\n" ${index}
-        done
-
-        echo "--------------------------------------------------------"
-
-        # Let user make a selection.
-
-        read -p "${langChooseDis}: " selection
-        case $selection in
-        [[:digit:]]*)
-            # Lower selection (arrays start at zero).
-            if ((selection < 1 || selection > index)); then
-                echo "${langEnterError}"
-                exit 1
-            fi
-            let selection-=1
-            gMonitor=${gDisplayInf[$selection]}
-            ;;
-
-        *)
-            echo "${langEnterError}"
-            exit 1
-            ;;
-        esac
-    else
-        gMonitor=${gDisplayInf}
-    fi
-
-    EDID=${gMonitor}
-    VendorID=$((0x${gMonitor:16:4}))
-    ProductID=$((0x${gMonitor:22:2}${gMonitor:20:2}))
-    Vid=($(printf '%x\n' ${VendorID}))
-    Pid=($(printf '%x\n' ${ProductID}))
-    # echo ${Vid}
-    # echo ${Pid}
-    # echo $EDID
-}
-
-# For Apple silicon there is no EDID. Get VID/PID in other way
-function get_vidpid_applesilicon() {
+# Universal display detection for modern macOS and Hackintosh
+function get_display_info() {
     local index=0
     local prodnamesindex=0
     local selection=0
-
-    # Apple ioreg display class
-    local appleDisplClass='AppleCLCD2'
-
-    # XPath as key.val
-    local value="/following-sibling::*[1]"
-    local get="/text()"
-
-    # XPath keys
-    local displattr="/key[.='DisplayAttributes']"
-    local prodattr="/key[.='ProductAttributes']"
-    local vendid="/key[.='LegacyManufacturerID']"
-    local prodid="/key[.='ProductID']"
-    local prodname="/key[.='ProductName']"
-
-    # VID/PID/Prodname
-    local prodAttrsQuery="/$displattr$value$prodattr$value"
-    local vendIDQuery="$prodAttrsQuery$vendid$value$get"
-    local prodIDQuery="$prodAttrsQuery$prodid$value$get"
-    local prodNameQuery="$prodAttrsQuery$prodname$value$get"
-
-    # Get VIDs, PIDs, Prodnames
-    # local vends=($(ioreg -arw0 -d1 -c $appleDisplClass | xpath -q -n -e "$vendIDQuery"))
-    # local prods=($(ioreg -arw0 -d1 -c $appleDisplClass | xpath -q -n -e "$prodIDQuery"))
 
     local vends=($(ioreg -l | grep "DisplayAttributes" | sed -n 's/.*"LegacyManufacturerID"=\([0-9]*\).*/\1/p'))
     local prods=($(ioreg -l | grep "DisplayAttributes" | sed -n 's/.*"ProductID"=\([0-9]*\).*/\1/p'))
 
     set -o noglob
-    # IFS=$'\n' prodnames=($(ioreg -arw0 -d1 -c $appleDisplClass | xpath -q -n -e "$prodNameQuery"))
     IFS=$'\n' prodnames=($(ioreg -l | grep "DisplayAttributes" | sed -n 's/.*"ProductName"="\([^"]*\)".*/\1/p'))
     set +o noglob
 
     if [[ "${#prods[@]}" -ge 2 ]]; then
-
-        # Multi monitors detected. Choose target monitor.
         echo ""
         echo "                      "${langMonitors}"                      "
         echo "------------------------------------------------------------"
         echo "   "${langIndex}"   |   "${langVendorID}"   |   "${langProductID}"   |   "${langMonitorName}"  "
         echo "------------------------------------------------------------"
 
-        # Show monitors.
         for prod in "${prods[@]}"; do
             MonitorName=${prodnames[$prodnamesindex]}
             VendorID=$(printf "%04x" ${vends[$index]})
@@ -253,7 +55,6 @@ function get_vidpid_applesilicon() {
 
             if [[ ${VendorID} == 0610 ]]; then
                 MonitorName="Apple Display"
-                # No name in prodnames variable for internal display
                 let prodnamesindex--
             fi
 
@@ -266,12 +67,9 @@ function get_vidpid_applesilicon() {
 
         echo "------------------------------------------------------------"
 
-        # Let user make a selection.
-
         read -p "${langChooseDis}: " selection
         case $selection in
         [[:digit:]]*)
-            # Lower selection (arrays start at zero).
             if ((selection < 1 || selection > index)); then
                 echo "${langEnterError}"
                 exit 1
@@ -279,14 +77,12 @@ function get_vidpid_applesilicon() {
             let selection-=1
             dispid=$selection
             ;;
-
         *)
             echo "${langEnterError}"
             exit 1
             ;;
         esac
     else
-        # One monitor detected
         dispid=0
     fi
 
@@ -323,11 +119,7 @@ function init() {
     lgicon=${sysOverrides}"\/DisplayVendorID\-1e6d\/DisplayProductID\-5b11\.tiff"
     proxdricon=${Overrides}"\/DisplayVendorID\-610\/DisplayProductID\-ae2f\_Landscape\.tiff"
     
-    if [[ $is_applesilicon == true ]]; then
-        get_vidpid_applesilicon
-    else
-        get_edid
-    fi
+    get_display_info
 
     # Check if monitor was found
     if [[ -z $VendorID || -z $ProductID || $VendorID == 0 || $ProductID == 0 ]]; then
@@ -343,185 +135,14 @@ function init() {
 
 #
 function generate_restore_cmd() {
-
-    if [[ $is_applesilicon == true ]]; then
-        cat >"$(cd && pwd)/.hidpi-disable" <<-\CCC
+    cat >"$HOME/.hidpi-disable" <<CCC
 #!/bin/bash
-function get_vidpid_applesilicon() {
-    local index=0
-    local prodnamesindex=0
-    local selection=0
-
-    # Apple ioreg display class
-    local appleDisplClass='AppleCLCD2'
-
-    # XPath as key.val
-    local value="/following-sibling::*[1]"
-    local get="/text()"
-
-    # XPath keys
-    local displattr="/key[.='DisplayAttributes']"
-    local prodattr="/key[.='ProductAttributes']"
-    local vendid="/key[.='LegacyManufacturerID']"
-    local prodid="/key[.='ProductID']"
-    local prodname="/key[.='ProductName']"
-
-    # VID/PID/Prodname
-    local prodAttrsQuery="/$displattr$value$prodattr$value"
-    local vendIDQuery="$prodAttrsQuery$vendid$value$get"
-    local prodIDQuery="$prodAttrsQuery$prodid$value$get"
-    local prodNameQuery="$prodAttrsQuery$prodname$value$get"
-
-    # Get VIDs, PIDs, Prodnames
-    local vends=($(ioreg -arw0 -d1 -c $appleDisplClass | xpath -q -n -e "$vendIDQuery"))
-    local prods=($(ioreg -arw0 -d1 -c $appleDisplClass | xpath -q -n -e "$prodIDQuery"))
-    set -o noglob
-    IFS=$'\n' prodnames=($(ioreg -arw0 -d1 -c $appleDisplClass | xpath -q -n -e "$prodNameQuery"))
-    set +o noglob
-
-    if [[ "${#prods[@]}" -ge 2 ]]; then
-        echo '              Monitors              '
-        echo '------------------------------------'
-        echo '  Index  |  VendorID  |  ProductID  '
-        echo '------------------------------------'
-        # Show monitors.
-        for prod in "${prods[@]}"; do
-            MonitorName=${prodnames[$prodnamesindex]}
-            VendorID=$(printf "%04x" ${vends[$index]})
-            ProductID=$(printf "%04x" ${prods[$index]})
-            let index++
-            let prodnamesindex++
-            if [[ ${VendorID} == 0610 ]]; then
-                MonitorName="Apple Display"
-                let prodnamesindex--
-            fi
-            printf "    %d    |    ${VendorID}    |     ${ProductID}    |  ${MonitorName}\n" ${index}
-        done
-
-        echo "------------------------------------"
-
-        # Let user make a selection.
-
-        read -p "Choose the display:" selection
-        case $selection in
-        [[:digit:]]*)
-            if ((selection < 1 || selection > index)); then
-                echo "Enter error, bye"
-                exit 1
-            fi
-            let selection-=1
-            dispid=$selection
-            ;;
-
-        *)
-            echo "Enter error, bye"
-            exit 1
-            ;;
-        esac
-    else
-        # One monitor detected
-        dispid=0
-    fi
-
-    VendorID=${vends[$dispid]}
-    ProductID=${prods[$dispid]}
-    Vid=($(printf '%x\n' ${VendorID}))
-    Pid=($(printf '%x\n' ${ProductID}))
-}
-
-get_vidpid_applesilicon
-
+echo "Removing HIDPI override for VID: ${Vid} PID: ${Pid}"
+sudo rm -rf "/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-${Vid}"
+sudo /usr/libexec/plistbuddy -c "Delete :vendors:${Vid}:products:${Pid}" "/Library/Displays/Contents/Resources/Overrides/Icons.plist" 2>/dev/null
+echo "HIDPI Disabled. Please reboot."
 CCC
-    else
-        cat >"$(cd && pwd)/.hidpi-disable" <<-\CCC
-#!/bin/sh
-function get_edid() {
-    local index=0
-    local selection=0
-    gDisplayInf=($(ioreg -lw0 | grep -i "IODisplayEDID" | sed -e "/[^<]*</s///" -e "s/\>//"))
-    if [[ "${#gDisplayInf[@]}" -ge 2 ]]; then
-        echo '              Monitors              '
-        echo '------------------------------------'
-        echo '  Index  |  VendorID  |  ProductID  '
-        echo '------------------------------------'
-        for display in "${gDisplayInf[@]}"; do
-            let index++
-            printf "    %d    |    ${display:16:4}    |    ${display:22:2}${display:20:2}\n" $index
-        done
-        echo '------------------------------------'
-        read -p "Choose the display: " selection
-        case $selection in
-        [[:digit:]]*)
-            if ((selection < 1 || selection > index)); then
-                echo "Enter error, bye"
-                exit 1
-            fi
-            let selection-=1
-            gMonitor=${gDisplayInf[$selection]}
-            ;;
-        *)
-            echo "Enter error, bye"
-            exit 1
-            ;;
-        esac
-    else
-        gMonitor=${gDisplayInf}
-    fi
-
-    EDID=$gMonitor
-    VendorID=$((0x${gMonitor:16:4}))
-    ProductID=$((0x${gMonitor:22:2}${gMonitor:20:2}))
-    Vid=($(printf '%x\n' ${VendorID}))
-    Pid=($(printf '%x\n' ${ProductID}))
-}
-
-get_edid
-
-CCC
-    fi
-
-    cat >>"$(cd && pwd)/.hidpi-disable" <<-\CCC
-# Check if monitor was found
-if [[ -z $VendorID || -z $ProductID || $VendorID == 0 || $ProductID == 0 ]]; then
-    echo "No monitors found. Exiting..."
-    exit 2
-fi
-
-echo "Your monitor VID/PID: $Vid:$Pid"
-
-rootPath="../.."
-restorePath="${rootPath}/Library/Displays/Contents/Resources/Overrides"
-
-echo ""
-echo "(1) Disable HIDPI on this monitor"
-echo "(2) Reset all settings to macOS default"
-echo ""
-
-read -p "Enter your choice [1~2]: " input
-case ${input} in
-1)
-    if [[ -f "${restorePath}/Icons.plist" ]]; then
-        ${rootPath}/usr/libexec/plistbuddy -c "Delete :vendors:${Vid}:products:${Pid}" "${restorePath}/Icons.plist"
-    fi
-    if [[ -d "${restorePath}/DisplayVendorID-${Vid}" ]]; then
-        rm -rf "${restorePath}/DisplayVendorID-${Vid}"
-    fi
-    ;;
-2)
-    rm -rf "${restorePath}"
-    ;;
-*)
-
-    echo "Enter error, bye"
-    exit 1
-    ;;
-esac
-
-echo "HIDPI Disabled"
-CCC
-
-    chmod +x "$(cd && pwd)/.hidpi-disable"
-
+    chmod +x "$HOME/.hidpi-disable"
 }
 
 # choose_icon
@@ -691,8 +312,16 @@ CCC
 
     cat >>"${dpiFile}" <<-\FFF
             </array>
-        <key>target-default-ppmm</key>
-            <real>10.0699301</real>
+FFF
+
+    echo ""
+    read -p "${langCustomName}" custom_name
+    if [[ -n "${custom_name}" ]]; then
+        echo "        <key>DisplayProductName</key>" >> "${dpiFile}"
+        echo "        <string>${custom_name}</string>" >> "${dpiFile}"
+    fi
+
+    cat >>"${dpiFile}" <<-\FFF
     </dict>
 </plist>
 FFF
@@ -796,21 +425,7 @@ function enable_hidpi() {
     end
 }
 
-# patch
-function enable_hidpi_with_patch() {
-    choose_icon
-    main
-
-    version=${EDID:38:2}
-    basicparams=${EDID:40:2}
-    checksum=${EDID:254:2}
-    newchecksum=$(printf '%x' $((0x${checksum} + 0x${version} + 0x${basicparams} - 0x04 - 0x90)) | tail -c 2)
-    newedid=${EDID:0:38}0490${EDID:42:6}e6${EDID:50:204}${newchecksum}
-    EDid=$(printf ${newedid} | xxd -r -p | base64)
-
-    /usr/bin/sed -i "" "s:EDid:${EDid}:g" ${dpiFile}
-    end
-}
+# EDID patch removed for modern compatibility (prevents black screens)
 
 # disable
 function disable() {
@@ -847,43 +462,22 @@ function start() {
     init
     echo ""
     let opt++; printf "${langEnableHIDPI}\n" $opt
-    if [[ $is_applesilicon == false ]]; then
-        let opt++; printf "${langEnableHIDPIEDID}\n" $opt
-    fi
     let opt++; printf "${langDisableHIDPI}\n" $opt
     echo ""
 
     read -p "${langInputChoice} [1~$opt]: " input
-    if [[ $is_applesilicon == true ]]; then
-        case ${input} in
-        1)
-            enable_hidpi
-            ;;
-        2)
-            disable
-            ;;
-        *)
-            echo "${langEnterError}"
-            exit 1
-            ;;
-        esac
-    else
-        case ${input} in
-        1)
-            enable_hidpi
-            ;;
-        2)
-            enable_hidpi_with_patch
-            ;;
-        3)
-            disable
-            ;;
-        *)
-            echo "${langEnterError}"
-            exit 1
-            ;;
-        esac
-    fi
+    case ${input} in
+    1)
+        enable_hidpi
+        ;;
+    2)
+        disable
+        ;;
+    *)
+        echo "${langEnterError}"
+        exit 1
+        ;;
+    esac
 }
 
 start
