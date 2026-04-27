@@ -351,6 +351,7 @@ function get_edid() {
     ProductID=$((0x${gMonitor:22:2}${gMonitor:20:2}))
     Vid=$(printf '%x\n' ${VendorID})
     Pid=$(printf '%x\n' ${ProductID})
+    show_banner
 }
 
 function get_vidpid_applesilicon() {
@@ -402,6 +403,7 @@ function get_vidpid_applesilicon() {
     ProductID=${prods[$dispid]}
     Vid=$(printf '%x\n' ${VendorID})
     Pid=$(printf '%x\n' ${ProductID})
+    show_banner
 }
 
 function init() {
@@ -456,6 +458,7 @@ function init() {
     echo -e "\n${CYAN}✏️  ${langNaming}${NC}"
     read -p "  ==> " custom_name
     if [[ ! -z "$custom_name" ]]; then MonitorName="$custom_name"; fi
+    show_banner
 
     generate_restore_cmd
 }
@@ -732,6 +735,7 @@ function choose_icon() {
         /usr/bin/sed -i "" "s/PICON/${Picon}/g" ${currentDir}/tmp/Icons.plist
         /usr/bin/sed -i "" "s/DICON/${DICON}/g" ${currentDir}/tmp/Icons.plist
     fi
+    show_banner
 }
 
 function main() {
@@ -846,6 +850,7 @@ CCC
         exit 1
         ;;
     esac
+    show_banner
 
     # Boot Logo Fix Logic - Optimized ppmm values
     # Lower values make the logo smaller. 10.0 is often too large for non-native Retina.
@@ -984,6 +989,7 @@ FFF
         2) echo -e "  ${YELLOW}💡 Please associate the profile manually in System Settings -> Displays after reboot.${NC}" ;;
         *) ;;
     esac
+    show_banner
 }
 
 # end
@@ -1028,6 +1034,7 @@ function custom_res() {
         h=$(echo ${res} | cut -d x -f 2)
         add_res $w $h 1
     done
+    show_banner
 }
 
 # robust resolution adder
@@ -1087,6 +1094,7 @@ function disable() {
     echo ""
 
     read -p "  ${langInputChoice} [1~2]: " input
+    show_banner
     case ${input} in
     1)
         if [[ -f "${targetDir}/Icons.plist" ]]; then
@@ -1124,6 +1132,7 @@ function start() {
     echo ""
 
     read -p "  ${langInputChoice} [1~$opt]: " input
+    show_banner
     if [[ $is_applesilicon == true ]]; then
         case ${input} in
         1) enable_hidpi ;;
@@ -1138,6 +1147,7 @@ function start() {
         *) echo -e "  ${RED}❌ ${langEnterError}${NC}"; exit 1 ;;
         esac
     fi
+    show_banner
 }
 
 start
