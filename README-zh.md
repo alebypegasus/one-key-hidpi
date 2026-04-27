@@ -27,7 +27,17 @@
    ```
 3. 按照屏幕上的彩色指令进行操作。
 
-![Terminal UI](img/run-zh.jpg)
+### 📸 操作流程概览
+<p align="center">
+  <img src="img/prints/print1.png" width="45%" />
+  <img src="img/prints/print2.png" width="45%" />
+  <img src="img/prints/print3.png" width="45%" />
+  <img src="img/prints/print4.png" width="45%" />
+  <img src="img/prints/print5.png" width="45%" />
+  <img src="img/prints/print6.png" width="45%" />
+  <img src="img/prints/print7.png" width="45%" />
+  <img src="img/prints/print8.png" width="45%" />
+</p>
 
 4. 重启系统以应用更改。
 

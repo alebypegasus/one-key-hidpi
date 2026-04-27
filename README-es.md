@@ -27,7 +27,17 @@ Active el modo HiDPI (Retina) en su macOS para monitores internos y externos con
    ```
 3. Siga las instrucciones coloridas en pantalla.
 
-![Terminal UI](img/run.jpg)
+### 📸 Resumen del Proceso
+<p align="center">
+  <img src="img/prints/print1.png" width="45%" />
+  <img src="img/prints/print2.png" width="45%" />
+  <img src="img/prints/print3.png" width="45%" />
+  <img src="img/prints/print4.png" width="45%" />
+  <img src="img/prints/print5.png" width="45%" />
+  <img src="img/prints/print6.png" width="45%" />
+  <img src="img/prints/print7.png" width="45%" />
+  <img src="img/prints/print8.png" width="45%" />
+</p>
 
 4. Reinicie el sistema para aplicar los cambios.
 

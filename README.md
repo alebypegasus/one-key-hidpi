@@ -26,8 +26,18 @@ Enables HiDPI (Retina mode) on macOS for external and internal displays with a p
    bash hidpi.sh
    ```
 3. Follow the colorful on-screen instructions.
-   
-![Terminal UI](img/run.jpg)
+
+### 📸 Process Overview
+<p align="center">
+  <img src="img/prints/print1.png" width="45%" />
+  <img src="img/prints/print2.png" width="45%" />
+  <img src="img/prints/print3.png" width="45%" />
+  <img src="img/prints/print4.png" width="45%" />
+  <img src="img/prints/print5.png" width="45%" />
+  <img src="img/prints/print6.png" width="45%" />
+  <img src="img/prints/print7.png" width="45%" />
+  <img src="img/prints/print8.png" width="45%" />
+</p>
 
 4. Reboot your system to apply changes.
 
