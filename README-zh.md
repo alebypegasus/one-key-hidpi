@@ -1,84 +1,35 @@
-# 一键开启 macOS HiDPI
+# One-Key HiDPI - Premium Edition 🚀
 
-## 说明
+为您的 macOS 提供高级终端界面和硬件自动检测功能，开启内建及外接显示器的 HiDPI (Retina) 模式。
 
-[English](README.md) | [中文](README-zh.md)
+## ✨ 功能特性
+- **智能检测**：自动检测原生分辨率和刷新率 (Hz)。
+- **高级终端界面 (TUI)**：彩色、直观且现代。
+- **多语言支持**：支持中文 (ZH)、英文 (EN)、葡语 (PT-BR)、西语 (ES)、法语 (FR) 和日语 (JP)。
+- **启动 Logo 修复**：解决 Apple Logo 变大的问题。
+- **颜色深度控制**：支持 8位、10位 (HDR) 和 12位专业色彩。
+- **高刷新率与 VRR**：解锁 144Hz+ 和 ProMotion (可变刷新率)。
+- **强制开启 Retina UI**：激活原生 Apple Retina 体验。
+- **自定义命名**：可以自定义在系统设置中显示的显示器名称。
+- **安全保障**：自动系统备份及稳定性警告。
 
- 此脚本的目的是为中低分辨率的屏幕开启 HiDPI 选项，并且具有原生的 HiDPI 设置，不需要 RDM 软件即可在系统显示器设置中设置
+## 📦 如何使用
+1. 下载或克隆本仓库。
+2. 双击 `hidpi.command` 或在终端中运行：
+   ```bash
+   bash hidpi.sh
+   ```
+3. 按照屏幕上的彩色指令进行操作。
+4. 重启系统以应用更改。
 
-macOS 的 DPI 机制和 Windows 下不一样，比如 1080p 的屏幕在 Windows 下有 125%、150% 这样的缩放选项，而同样的屏幕在 macOS 下，缩放选项里只是单纯的调节分辨率，这就使得在默认分辨率下字体和UI看起来很小，降低分辨率又显得模糊
+## 🛠 手动恢复
+脚本会在以下路径创建备份：
+`/Library/Displays/Contents/Resources/Overrides.bak`
 
-同时，此脚本也可以通过注入修补后的 EDID 修复闪屏，或者睡眠唤醒后的闪屏问题，当然这个修复因人而异
-
-开机的第二阶段 logo 总是会稍微放大，因为分辨率是仿冒的
-
-设置：
-
-![设置](./img/preferences.jpg)
-
-![设置](./img/hidpi.gif)
-
-## 使用方法
-
-1.远程模式: 在终端输入以下命令回车即可
-
+您可以使用以下命令进行恢复：
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master/hidpi.sh)"
+sudo cp -r /Library/Displays/Contents/Resources/Overrides.bak /Library/Displays/Contents/Resources/Overrides
 ```
 
-2.本地模式: 下载项目解压,双击 `hidpi.command` 运行
-
-![运行](./img/run-zh.jpg)
-
-## 恢复
-
-### 命令恢复
-
-如果还能进系统，就再次运行命令选择选项 3 关闭 HIDPI。
-
-### 恢复模式
-
-如果使用此脚本后，开机无法进入系统，请到 macos 恢复模式，打开终端
-
-这里有两种方式进行关闭，建议选第一种
-
-1. 快捷恢复
-    
-
-```bash
-ls /Volumes/
-```
-
-你会看到你的系统盘
-
-```bash
-cd /Volumes/你的系统盘/Users/
-
-ls
-```
-
-你可以看到所有用户的家目录
-
-```bash
-cd 你的用户名
-
-./.hidpi-disable
-```
-
-2. 手动恢复
-
-使用终端删除 `Library/Displays/Contents/Resources/Overrides` 下删除所有通过外部注入的显示器配置文件夹
-
-具体命令如下：
-
-```bash
-ls /Volumes/
-rm -rf /Volumes/你的系统盘/Library/Displays/Contents/Resources/Overrides
-```
-
-## 从以下得到启发
-
-https://www.tonymacx86.com/threads/solved-black-screen-with-gtx-1070-lg-ultrafine-5k-sierra-10-12-4.219872/page-4#post-1644805
-
-https://github.com/syscl/Enable-HiDPI-OSX
-
+---
+*为 Hackintosh 和 macOS 社区精心打造 ❤️*
