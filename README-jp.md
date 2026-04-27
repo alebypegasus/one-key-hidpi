@@ -1,5 +1,9 @@
 # One-Key HiDPI - Premium Edition 🚀
 
+[English](README.md) | [Português](README-ptbr.md) | [Español](README-es.md) | [Français](README-fr.md) | [日本語](README-jp.md) | [简体中文](README-zh.md)
+
+![HiDPI Preview](img/hidpi.gif)
+
 プレミアムなインターフェースとハードウェア自動検出機能を備えた、macOS向けのHiDPI（Retinaモード）有効化ツールです。内蔵および外付けディスプレイに対応しています。
 
 ## ✨ 特徴
@@ -10,6 +14,8 @@
 - **カスタム名設定**: システム設定に表示されるディスプレイ名を自由に変更可能。
 - **安全第一**: 自動システムバックアップと安定性に関する警告機能。
 
+![Preferences](img/preferences.jpg)
+
 ## 📦 使い方
 1. このリポジトリをダウンロードまたはクローンします。
 2. `hidpi.command`をダブルクリックするか、ターミナルで実行してください：
@@ -17,6 +23,9 @@
    bash hidpi.sh
    ```
 3. 画面に表示されるカラフルな指示に従ってください。
+
+![Terminal UI](img/run.jpg)
+
 4. システムを再起動して設定を反映させます。
 
 ## 🛠 手動リカバリ

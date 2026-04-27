@@ -1,5 +1,9 @@
 # One-Key HiDPI - Premium Edition 🚀
 
+[English](README.md) | [Português](README-ptbr.md) | [Español](README-es.md) | [Français](README-fr.md) | [日本語](README-jp.md) | [简体中文](README-zh.md)
+
+![HiDPI Preview](img/hidpi.gif)
+
 为您的 macOS 提供高级终端界面和硬件自动检测功能，开启内建及外接显示器的 HiDPI (Retina) 模式。
 
 ## ✨ 功能特性
@@ -13,6 +17,8 @@
 - **自定义命名**：可以自定义在系统设置中显示的显示器名称。
 - **安全保障**：自动系统备份及稳定性警告。
 
+![Preferences](img/preferences.jpg)
+
 ## 📦 如何使用
 1. 下载或克隆本仓库。
 2. 双击 `hidpi.command` 或在终端中运行：
@@ -20,6 +26,9 @@
    bash hidpi.sh
    ```
 3. 按照屏幕上的彩色指令进行操作。
+
+![Terminal UI](img/run-zh.jpg)
+
 4. 重启系统以应用更改。
 
 ## 🛠 手动恢复

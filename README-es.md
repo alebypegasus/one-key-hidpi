@@ -1,5 +1,9 @@
 # One-Key HiDPI - Premium Edition 🚀
 
+[English](README.md) | [Português](README-ptbr.md) | [Español](README-es.md) | [Français](README-fr.md) | [日本語](README-jp.md) | [简体中文](README-zh.md)
+
+![HiDPI Preview](img/hidpi.gif)
+
 Active el modo HiDPI (Retina) en su macOS para monitores internos y externos con una interfaz premium y detección automática de hardware.
 
 ## ✨ Características
@@ -13,6 +17,8 @@ Active el modo HiDPI (Retina) en su macOS para monitores internos y externos con
 - **Nombre Personalizado**: Elija el nombre que aparecerá en los Ajustes del Sistema.
 - **Seguridad**: Copias de seguridad automáticas y avisos de estabilidad.
 
+![Preferences](img/preferences.jpg)
+
 ## 📦 Cómo Usar
 1. Descargue o clone este repositorio.
 2. Haga doble clic en `hidpi.command` o ejecute en el terminal:
@@ -20,6 +26,9 @@ Active el modo HiDPI (Retina) en su macOS para monitores internos y externos con
    bash hidpi.sh
    ```
 3. Siga las instrucciones coloridas en pantalla.
+
+![Terminal UI](img/run.jpg)
+
 4. Reinicie el sistema para aplicar los cambios.
 
 ## 🛠 Recuperación Manual

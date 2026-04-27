@@ -1,5 +1,9 @@
 # One-Key HiDPI - Premium Edition 🚀
 
+[English](README.md) | [Português](README-ptbr.md) | [Español](README-es.md) | [Français](README-fr.md) | [日本語](README-jp.md) | [简体中文](README-zh.md)
+
+![HiDPI Preview](img/hidpi.gif)
+
 Activez le mode HiDPI (Retina) sur votre macOS pour les écrans internes et externes avec une interface premium et une détection automatique du matériel.
 
 ## ✨ Caractéristiques
@@ -7,11 +11,13 @@ Activez le mode HiDPI (Retina) sur votre macOS pour les écrans internes et exte
 - **Interface Premium (TUI)** : Colorée, intuitive et moderne.
 - **Multi-langue** : Support pour FR, EN, PT-BR, ES, JP et ZH.
 - **Correction du Logo au Démarrage** : Résout le problème du logo Apple géant.
-- **Contrôle de la profondeur de couleur** : Support pour 8 bits, 10 bits (HDR) et 12 bits Pro.
+- **Controle de la profondeur de couleur** : Support pour 8 bits, 10 bits (HDR) et 12 bits Pro.
 - **Fréquence élevée et VRR** : Débloquez 144Hz+ et ProMotion (Taux de Rafraîchissement Variable).
 - **Activation Retina forcée** : Active l'expérience native Apple Retina.
 - **Nom Personnalisé** : Choisissez le nom qui apparaîtra dans les Réglages Système.
 - **Sécurité** : Sauvegardes automatiques et avertissements de stabilité.
+
+![Preferences](img/preferences.jpg)
 
 ## 📦 Comment l'utiliser
 1. Téléchargez ou clonez ce dépôt.
@@ -20,6 +26,9 @@ Activez le mode HiDPI (Retina) sur votre macOS pour les écrans internes et exte
    bash hidpi.sh
    ```
 3. Suivez les instructions colorées à l'écran.
+
+![Terminal UI](img/run.jpg)
+
 4. Redémarrez le système pour appliquer les changements.
 
 ## 🛠 Récupération Manuelle
